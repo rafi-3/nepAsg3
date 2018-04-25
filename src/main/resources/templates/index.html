@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Bru-Hers</title>
+<link href="../static/index.css" th:href="@{/index.css}" rel="stylesheet" />
+<script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</head>
+
+<body>
+
+<button class="tablink" onclick="openPage('Home', this, '#6FEDB7')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('Patients', this, '#32DE8A')" >Patients</button>
+<button class="tablink" onclick="openPage('Doctors', this, '#4EA699')">Doctors</button>
+<button class="tablink" onclick="openPage('About', this, '#35393C')">About</button>
+
+<div id="Home" class="tabcontent">
+<div style="margin: auto;margin-left: auto;margin-right: auto;width: 50%;padding: 50px;">
+  <h3>Bru-Hers</h3>
+  <p>Hi! Welcome to Bru-Hers, your one stop patients and doctors management. </p>
+</div>
+</div>
+
+<div id="Patients" class="tabcontent" style >
+ <div style="margin: auto;margin-left: auto;margin-right: auto;width: 50%;padding: 50px;">
+  <h3>Patients</h3>
+  <p>To add patient, click <b>Add Patients</b>. To edit patients click the <b>ID</b> or <b>Delete</b> to deleted patients</p>
+ <table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Age</td>
+				<td>Gender</td>
+				<td>Description</td>
+				<td>Prescription</td>
+				<td>Delete</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="patients : ${patients}">
+				<td>
+					<a th:href="|/patients/${patients.id}|" th:text="${patients.id}"></a>
+				</td>
+				<td th:text="${patients.name}"></td>
+				<td th:text="${patients.age}"></td>
+				<td th:text="${patients.gender}"></td>
+				<td th:text="${patients.description}"></td>
+				<td th:text="${patients.prescription}"></td>
+				<td>
+					<a th:href="|/delete/patients/${patients.id}|">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<form action="/add">
+		<button type="submit">Add Patients</button>
+	</form>
+</div>
+ </div>
+
+<div id="Doctors" class="tabcontent">
+ <div style="margin: auto;margin-left: auto;margin-right: auto;width: 50%;padding: 50px;">
+  <h3>Doctors</h3>
+  <p>To add doctor, click <b>Add Doctors</b>. To edit doctors click the <b>ID</b> or <b>Delete</b> to deleted doctors</p>
+ <table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Age</td>
+				<td>Gender</td>
+				<td>Specialist</td>
+				<td>Delete</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="doctor : ${doctors}">
+				<td>
+					<a th:href="|/doctors/${doctor.id}|" th:text="${doctor.id}"></a>
+				</td>
+				<td th:text="${doctor.name}"></td>
+				<td th:text="${doctor.age}"></td>
+				<td th:text="${doctor.gender}"></td>
+				<td th:text="${doctor.specialist}"></td>
+				<td>
+					<a th:href="|/delete2/doctors/${doctor.id}|">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<form action="/add2">
+		<button type="submit">Add Doctors</button>
+	</form>
+	</div>
+</div>
+
+<div id="About" class="tabcontent">
+<div  style="margin: auto;margin-left: auto;margin-right: auto;width: 50%;padding: 50px;">
+  <h3>About</h3>
+  <pre>SCHOOL OF INFORMATION AND
+COMMUNICATION TECHNOLOGY
+
+NS4306 Network Programming
+ASSIGNMENT 3:  Develop a Java Web Application
+
+
+Lecturer Name: Mohammad Jailani Haji Abdul Rahman
+
+Submitted by:
+HJ MUHD ADIB BIN HJ HUSIN [DiICT(NWS)/06/16/0347]
+MUHD RAFIUDDIN BIN AG HJ ABDUL RAHMAN [DiICT(NWS)/06/16/0350]
+NURHIDAYANA BINTI PENDI [DiICT(NWS)/06/16/0356]
+
+NWS04
+DiICT(NWS)/0216/04
+[SEMESTER 4, APRIL 25]</pre>
+</div>
+</div>
+	
+</body>
+</html>

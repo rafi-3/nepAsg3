@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/universal.css" th:href="@{/universal.css}" rel="stylesheet" />
+<head>
+<meta charset="UTF-8">
+<title>Doctor's Details</title>
+</head>
+<body>
+<div>
+	<form method="get" th:action="|/edit/patients/${patients.id}|">
+		<h1>Doctor's Details</h1>
+		
+		<h3>Name:</h3>
+			<input type="text" name="name" th:value =${patients.name}/><br>
+			
+		<h3>Age:</h3>
+			<input type="number" name="age" th:value =${patients.age}/><br>
+			
+		<h3>Gender</h3>
+			<input type="radio" name="gender" value="true" th:checked="${patients.gender== true}" /> Male <br/>
+			<input type="radio" name="gender" value="false" th:checked="${patients.gender== false}"/> Female <br/>
+			
+		<h3>Description:</h3>
+			<textarea name="description" th:text =${patients.description}></textarea>
+			
+		<h3>Prescription:</h3>
+			<textarea name="prescription" th:text =${patients.prescription}></textarea>
+		
+			
+		<button type="submit">Edit</button>
+	</form>
+</div>
+</body>
+</html>

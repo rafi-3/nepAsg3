@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="universal.css">
+<title>Add New Doctor's Details</title>
+</head>
+<body>
+<div>
+	<form method="get" action="add2/doctors/">
+		<h1>Add Doctor's Details</h1>
+		<h3>Name</h3>
+			<input type="text" name="name"/><br>
+		<h3>Age</h3>
+			<input type="text" name="age"/><br>
+		<h3>Gender</h3>
+			<input type="radio" name="gender" value="true" checked/> Male <br/>
+			<input type="radio" name="gender" value="false" checked/> Female <br/>
+		<h3>Specialist</h3>
+			<textarea name="specialist"></textarea>
+		<button type="submit">Add Doctors</button>
+	</form>
+
+</div>
+</body>
+</html>

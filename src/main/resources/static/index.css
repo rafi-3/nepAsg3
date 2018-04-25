@@ -1,0 +1,52 @@
+* {box-sizing: border-box}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+	background-color: #5B5B5B;
+}
+
+th {
+    background-color: #4CAF50;
+    color: #35393C;
+}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+    font-colour: black;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+#Home {background-color: #6FEDB7; div}
+#Patients {background-color: #32DE8A;}
+#Doctors{background-color: #4EA699;}
+#About {background-color: #35393C;}
